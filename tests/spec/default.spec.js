@@ -19,65 +19,38 @@ describe('fluxible', function () {
     });
 
     it('follows get started link', function () {
-        browser.get(browser.baseUrl).then(function () {
-            expect(browser.getTitle()).to.eventually.match(/Fluxible/);
+        browser.get(browser.baseUrl);
+        expect(browser.getTitle()).to.eventually.match(/Fluxible/);
 
-            var splashLinks = browser.$$('#splash a');
-            var link = splashLinks.get(0);
+        $('#splash a').click();
 
-            link.click().then(function () {
-                var h1 = browser.$('#main h1');
-                var isPresent = EC.presenceOf(h1);
-                browser.wait(isPresent, 500);
+        var h1 = $('#main h1');
+        browser.wait(EC.presenceOf(h1), 500);
 
-                expect(h1.getText()).to.eventually.match(/Quick Start/);
-
-                expect(browser.getCurrentUrl()).to.eventually.match(/quick-start.html/);
-                expect(browser.getTitle()).to.eventually.match(/Quick Start/);
-            });
-        });
+        expect(h1.getText()).to.eventually.match(/Quick Start/);
+        expect(browser.getCurrentUrl()).to.eventually.match(/quick-start.html/);
+        expect(browser.getTitle()).to.eventually.match(/Quick Start/);
     });
 
     it('follows doc links', function () {
-        browser.get(browser.baseUrl + 'quick-start.html').then(function () {
-            expect(browser.getTitle()).to.eventually.match(/Quick Start/);
+        // load quick start page
+        browser.get(browser.baseUrl + 'quick-start.html');
+        expect(browser.getTitle()).to.eventually.match(/Quick Start/);
 
-            var menuLink = browser.$('#aside a.Actions');
-            var h1;
+        // navigate to Actions page
+        $('#aside a.Actions').click();
 
-            menuLink.click().then(function () {
-                var h1 = browser.$('#main h1');
-                var isPresent = EC.presenceOf(h1);
-                browser.wait(isPresent, 500);
+        var h1 = $('#main h1');
 
-                expect(h1.getText()).to.eventually.match(/Actions/);
-                expect(browser.getCurrentUrl()).to.eventually.match(/api\/actions.html/);
-                expect(browser.getTitle()).to.eventually.match(/Actions/);
+        // without this protractor tests the old dom node
+        // but react renders it away and causes stale element error
+        browser.wait(EC.stalenessOf(h1), 500);
 
-                menuLink = browser.$('#aside a.Components');
-            }).then(function () {
-                menuLink.click().then(function () {
-                    var h1 = browser.$('#main h1');
-                    var isPresent = EC.presenceOf(h1);
-                    browser.wait(isPresent, 500);
+        // this ensures the node is available
+        browser.wait(EC.presenceOf(h1), 500);
 
-                    expect(h1.getText()).to.eventually.match(/Components/);
-                    expect(browser.getCurrentUrl()).to.eventually.match(/api\/components.html/);
-                    expect(browser.getTitle()).to.eventually.match(/Components/);
-
-                    menuLink = browser.$$('#aside a.Routing');
-                });
-            }).then(function () {
-                menuLink.click().then(function () {
-                    var h1 = browser.$('#main h1');
-                    var isPresent = EC.presenceOf(h1);
-                    browser.wait(isPresent, 500);
-
-                    expect(h1.getText()).to.eventually.match(/Routing/);
-                    expect(browser.getCurrentUrl()).to.eventually.match(/tutorials\/routing.html/);
-                    expect(browser.getTitle()).to.eventually.match(/Routing/);
-                });
-            });
-        });
+        expect(h1.getText()).to.eventually.match(/Actions/);
+        expect(browser.getCurrentUrl()).to.eventually.match(/api\/actions.html/);
+        expect(browser.getTitle()).to.eventually.match(/Actions/);
     });
 });

@@ -12,8 +12,12 @@ import secrets from './../secrets';
 import qs from 'querystring';
 import url from 'url';
 import routes from '../configs/routes';
+import fs from 'fs';
+import lunr from 'lunr';
+import async from 'async';
 
 const debug = debugLib('APIService');
+const indexDb = process.cwd() + '/build/search.json';
 
 marked.setOptions({
     highlight: (code) => {
@@ -23,10 +27,22 @@ marked.setOptions({
 
 // Generate an hash of valid api routes, from the /configs/apis.js file
 let cache = {};
+let documents = [];
+
+// setup lunr index
+const index = lunr(function () {
+    debug('Creating lunr index');
+    this.field('title', { boost: 10 });
+    this.field('description', { boost: 5 });
+    this.field('body');
+    this.field('permalink');
+});
 
 let fetchAPI = function (docParams, cb) {
-    let githubRepo = docParams.repo || 'yahoo/fluxible';
-    let githubPath = docParams.path;
+    const title = docParams.pageTitlePrefix || docParams.pageTitle;
+    const description = docParams.pageDescription;
+    const githubRepo = docParams.repo || 'yahoo/fluxible';
+    const githubPath = docParams.githubPath;
     let githubUrl = 'https://api.github.com/repos/' + githubRepo + '/contents/';
     githubUrl += githubPath;
     githubUrl += '?' + qs.stringify({
@@ -87,6 +103,18 @@ let fetchAPI = function (docParams, cb) {
                 content: output
             };
 
+            // index document for searching
+            debug('Adding %s to index', githubPath);
+            const document = {
+                id: githubPath,
+                title: title,
+                body: output,
+                description: description,
+                permalink: docParams.path
+            };
+            index.add(document);
+            documents.push(document);
+
             cb && cb(null, cache[githubPath]);
         } else {
             debug('Doc not found for', githubPath, res.body);
@@ -102,13 +130,23 @@ let fetchAPI = function (docParams, cb) {
 };
 
 (function refreshCacheFromGithub() {
+    var fetches = [];
     Object.keys(routes).forEach(function (routeName) {
-        var githubPath = routes[routeName].githubPath;
-        if (githubPath) {
-            fetchAPI({
-                path: githubPath
+        if (routes[routeName].githubPath) {
+            fetches.push(function(cb) {
+                fetchAPI(routes[routeName], cb);
             });
         }
+    });
+
+    async.parallel(fetches, function(err) {
+        // save index
+        const data = {
+            docs: documents,
+            index: index.toJSON()
+        };
+
+        fs.writeFileSync(indexDb, JSON.stringify(data));
     });
 
     setTimeout(refreshCacheFromGithub, 60 * 60 * 1000); // refresh cache every hour

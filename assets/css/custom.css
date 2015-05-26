@@ -82,6 +82,10 @@
     opacity: 1;
 }
 
+#navigation form {
+    transition: width 0.2s ease-in;
+}
+
 /**
  * .selected list item
  */

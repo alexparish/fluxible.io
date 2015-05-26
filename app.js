@@ -9,6 +9,7 @@ import fetchrPlugin from 'fluxible-plugin-fetchr';
 import routes from './configs/routes';
 import Application from './components/Application.jsx';
 import DocStore from './stores/DocStore';
+import SearchStore from './stores/SearchStore';
 import { RouteStore } from 'fluxible-router';
 
 const debug = Debug('app.js');
@@ -36,5 +37,6 @@ app.plug(fetchrPlugin({ xhrPath: '/_api' }));
 
 app.registerStore(DocStore);
 app.registerStore(MyRouteStore);
+app.registerStore(SearchStore);
 
 export default app;

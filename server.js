@@ -16,6 +16,7 @@ import html from './components/Html.jsx';
 import tracking from './configs/tracking';
 import assets from './utils/assets';
 import DocsService from './services/docs';
+import SearchService from './services/search';
 
 const HtmlComponent = React.createFactory(html);
 const server = express();
@@ -32,6 +33,7 @@ const fetchrPlugin = app.getPlugin('FetchrPlugin');
 
 // Register our services
 fetchrPlugin.registerService(DocsService);
+fetchrPlugin.registerService(SearchService);
 
 // Set up the fetchr middleware
 server.use(fetchrPlugin.getXhrPath(), fetchrPlugin.getMiddleware());
