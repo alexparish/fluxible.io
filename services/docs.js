@@ -50,7 +50,7 @@ let fetchAPI = function (docParams, cb) {
             let output = marked(mdString, {renderer: renderer});
 
             // Replace links
-            let internalLinkRegex = /href="([a-zA-Z\/\-]*\.md)/g;
+            let internalLinkRegex = /href="([a-zA-Z\/\-\.]*\.md)/g;
             let replacements = [];
             let result;
 
