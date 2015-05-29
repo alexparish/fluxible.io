@@ -13,7 +13,6 @@ import csrf from 'csurf';
 import React from 'react';
 import app from './app';
 import html from './components/Html.jsx';
-import tracking from './configs/tracking';
 import assets from './utils/assets';
 import DocsService from './services/docs';
 import SearchService from './services/search';
@@ -49,8 +48,7 @@ function renderApp(res, context) {
         assets: assets,
         context: componentContext,
         state: exposed,
-        markup: renderedApp,
-        tracking: tracking
+        markup: renderedApp
     }));
 
     res.send(doctype + html);

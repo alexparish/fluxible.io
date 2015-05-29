@@ -4,7 +4,8 @@
  */
 
 import React from 'react';
-import { NavLink } from 'fluxible-router';
+import NavLink from './NavLink.jsx';
+import { I13nAnchor, createI13nNode } from 'react-i13n';
 import { connectToStores } from 'fluxible/addons';
 import Doc from './Doc.jsx';
 
@@ -24,7 +25,7 @@ class Home extends React.Component {
                     </div>
                     <div className="Pos(a) End(10px) B(5px) C(eee) Fz(80%)">
                         <cite>
-                            <a href="https://www.flickr.com/photos/devinmoore/2670474853" title="Splash derived from Blue Ring Electricity Fractal by Devin Moore used under CC BY 2.0" _target="blank">&copy; Devon Moore</a>
+                            <I13nAnchor href="https://www.flickr.com/photos/devinmoore/2670474853" title="Splash derived from Blue Ring Electricity Fractal by Devin Moore used under CC BY 2.0" _target="blank">&copy; Devon Moore</I13nAnchor>
                         </cite>
                     </div>
                 </div>
@@ -79,14 +80,14 @@ class Home extends React.Component {
                     </div>
 
                     <p className="Ta(c) Mt(2em)--sm">
-                        <a href="https://gitter.im/yahoo/fluxible">
+                        <I13nAnchor href="https://gitter.im/yahoo/fluxible">
                             <img src="https://camo.githubusercontent.com/20d7543bc8280bf8134b686c46c7b7e2c0a467fd/68747470733a2f2f6261646765732e6769747465722e696d2f67697474657248512f6769747465722e706e67"
                                 alt="Gitter chat"
                                 data-canonical-src="https://badges.gitter.im/gitterHQ/gitter.png"
                                 style={{maxWidth: "100%"}}
                                 className="Va(m)" />
-                        </a> or
-                        #fluxible channel of the <a href="http://reactiflux.com/">Reactiflux</a> Slack community.
+                        </I13nAnchor> or
+                        #fluxible channel of the <I13nAnchor href="http://reactiflux.com/">Reactiflux</I13nAnchor> Slack community.
                     </p>
 
                     <div className="Ta(c)">
@@ -98,4 +99,6 @@ class Home extends React.Component {
     }
 }
 
-export default Home;
+export default createI13nNode(Home, {
+    i13nModel: {category: 'home'}
+});

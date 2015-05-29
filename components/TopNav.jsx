@@ -4,8 +4,9 @@
  */
 
 import React from 'react';
-import { NavLink } from 'fluxible-router';
 import cx from 'classnames';
+import NavLink from './NavLink.jsx';
+import { I13nAnchor, createI13nNode } from 'react-i13n'
 import Search from './Search.jsx'
 
 class TopNav extends React.Component {
@@ -27,9 +28,9 @@ class TopNav extends React.Component {
                     </NavLink>
                 </li>
                 <li className="D(ib) Va(m) Mstart(20px) Pos(r) Fw(400)">
-                    <a href="https://github.com/yahoo/fluxible" className="D(b) C(#fff) Td(n):h navLink" target="_blank">
+                    <I13nAnchor href="https://github.com/yahoo/fluxible" className="D(b) C(#fff) Td(n):h navLink" target="_blank">
                         <i className="Va(m) Pos(r) fa fa-github"></i> GitHub
-                    </a>
+                    </I13nAnchor>
                 </li>
             </ul>
         );
@@ -41,4 +42,6 @@ TopNav.propTypes = {
     selected: React.PropTypes.string
 };
 
-export default TopNav;
+export default createI13nNode(TopNav, {
+    i13nModel: {category: 'top-nav'}
+});
