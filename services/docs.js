@@ -15,9 +15,10 @@ import routes from '../configs/routes';
 import fs from 'fs';
 import lunr from 'lunr';
 import async from 'async';
+import getSearchIndexPath from '../utils/getSearchIndexPath';
 
 const debug = debugLib('APIService');
-const indexDb = process.cwd() + '/build/search.json';
+const indexDb = getSearchIndexPath();
 
 marked.setOptions({
     highlight: (code) => {
