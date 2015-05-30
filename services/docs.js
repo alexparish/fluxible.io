@@ -56,7 +56,7 @@ let fetchAPI = function (docParams, cb) {
     .set('User-Agent', 'superagent')
     .end(function (err, res) {
         if (err) {
-            cb && cb(err);
+            return cb(err);
         }
 
         let md = res.body && res.body.content; // base64 encoded string of the markdown file
@@ -116,7 +116,7 @@ let fetchAPI = function (docParams, cb) {
             index.add(document);
             documents.push(document);
 
-            cb && cb(null, cache[githubPath]);
+            return cb(null, cache[githubPath]);
         } else {
             debug('Doc not found for', githubPath, res.body);
 
@@ -125,7 +125,7 @@ let fetchAPI = function (docParams, cb) {
                 content: marked('# Doc Not Found: ' + githubPath, {renderer: renderer})
             };
 
-            cb && cb(null, cache[githubPath]);
+            return cb(null, cache[githubPath]);
         }
     });
 };
