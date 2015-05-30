@@ -88,7 +88,7 @@
     "mocha": "^2.0.1",
     "mockery": "^1.4.0",
     "nodemon": "^1.2.1",
-    "precommit-hook": "^2.0.1",
+    "pre-commit": "^1.0.7",
     "protractor": "^2.0.0",
     "webpack": "^1.7.3",
     "webpack-dev-server": "^1.6.5"
