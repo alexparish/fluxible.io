@@ -35,7 +35,7 @@ class Docs extends React.Component {
     render() {
         let wrapperClasses = cx({
             'menu-on': this.state.isMenuVisible,
-            'docs-page innerwrapper D-tb--sm Tbl-f Pt-20px Mb-50px Mx-a--sm W-90%--sm': true
+            'docs-page innerwrapper D(tb)--sm Tbl(f) Pt(20px) Mb(50px) Mx(a)--sm W(90%)--sm': true
         });
         let page;
         const currentRoute = this.props.currentRoute;
@@ -51,7 +51,7 @@ class Docs extends React.Component {
                 <button
                     onClick={this.handleMenuToggle.bind(this)}
                     id="toggleMenuButton"
-                    className="menu-button D-n--sm Pos-a resetButton End-0 Z-7 Mend-10px"
+                    className="menu-button D(n)--sm Pos(a) resetButton End(0) Z(7) Mend(10px)"
                     style={{ top: "-12px" }}
                 >
                     <i className="fa fa-bars"></i>
@@ -59,7 +59,7 @@ class Docs extends React.Component {
                 </button>
                 <Menu selected={this.props.currentRoute && this.props.currentRoute.get('name')} onClickEvent={this.hideMenu.bind(this)} />
                 {page}
-                <div id="overlay" className="D-n Z-3 Pos-f T-0 Start-0 W-100% H-100%"></div>
+                <div id="overlay" className="D(n) Z(3) Pos(f) T(0) Start(0) W(100%) H(100%)"></div>
             </div>
         );
     }

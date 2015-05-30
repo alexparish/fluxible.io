@@ -26,14 +26,14 @@ class SearchResults extends React.Component {
                     <h3>
                         <NavLink href={result.permalink}>{result.title}</NavLink>
                     </h3>
-                    <p className="M-0">{result.description}</p>
-                    <small className="C-#006621">{result.permalink}</small>
+                    <p className="M(0)">{result.description}</p>
+                    <small className="C(#006621)">{result.permalink}</small>
                 </li>
             );
         });
 
         if (results.length) {
-            html = (<ol className="List-dc">{results}</ol>);
+            html = (<ol className="List(dc)">{results}</ol>);
         }
 
         return html;
@@ -41,7 +41,7 @@ class SearchResults extends React.Component {
 
     render() {
         return (
-            <div id="main" role="main" className="D-tbc--sm Px-10px Pos-r">
+            <div id="main" role="main" className="D(tbc)--sm Px(10px) Pos(r)">
                 <h1>Search Results</h1>
                 {this.showResults()}
             </div>

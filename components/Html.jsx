@@ -20,8 +20,8 @@ class Html extends React.Component {
                     <link rel="stylesheet" href="/public/css/bundle.css" />
                     <script dangerouslySetInnerHTML={{__html: this.props.tracking}}></script>
                 </head>
-                <body className="Mih-100%">
-                    <div id="docsapp" className="H-100%" dangerouslySetInnerHTML={{__html: this.props.markup}}></div>
+                <body className="Mih(100%)">
+                    <div id="docsapp" className="H(100%)" dangerouslySetInnerHTML={{__html: this.props.markup}}></div>
                     <script dangerouslySetInnerHTML={{__html: this.props.state}}></script>
                     <script src={this.props.assets.common}></script>
                     <script src={this.props.assets.main}></script>
