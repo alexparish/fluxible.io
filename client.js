@@ -6,11 +6,13 @@
 
 import React from 'react';
 import app from './app';
+import Debug from 'debug';
 const dehydratedState = window.App; // sent from the server
 
 // for chrome dev tool support
 window.React = React;
 window.app = app;
+window.fluxibleDebug = Debug;
 
 app.rehydrate(dehydratedState, function (err, context) {
     if (err) {

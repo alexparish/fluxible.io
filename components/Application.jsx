@@ -65,7 +65,7 @@ class Application extends React.Component {
                         <div className="innerwrapper spaceBetween Mx-a--sm W-90%--sm W-a--sm">
                             <NavLink className={logoClasses} routeName="home" style={{ fontFamily: 'Montserrat' }}>
                                 <img src="/public/images/logo_small.svg" width="16" height="16" alt="Fluxible" style={{verticalAlign: 'baseline'}} /> Fluxible
-                            </NavLink> <TopNav selected={routeName} />
+                            </NavLink> <TopNav selected={routeName} currentRoute={this.props.currentRoute} />
                         </div>
                     </div>
                     {Handler}

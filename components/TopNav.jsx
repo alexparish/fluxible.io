@@ -6,20 +6,28 @@
 import React from 'react';
 import { NavLink } from 'fluxible-router';
 import cx from 'classnames';
+import Search from './Search.jsx'
 
 class TopNav extends React.Component {
+    constructor() {
+        super();
+    }
+
     render() {
-        let selected = this.props.selected;
+        const selected = this.props.selected;
 
         return (
             <ul id="navigation" role="navigation" className="Va-m reset">
-                <li className={cx({'selected': selected !== 'home', 'D-ib Va-m Pos-r Fw-400': true})}>
+                <li className="D-ib Va-m Pos-r Fw-400 C-#fff Td-n:h">
+                    <Search currentRoute={this.props.currentRoute} />
+                </li>
+                <li className={cx({'selected': selected !== 'home', 'D-ib Va-m Mstart-20px Pos-r Fw-400 navLink': true})}>
                     <NavLink routeName="quickStart" className="D-b C-#fff Td-n:h">
                         Docs
                     </NavLink>
                 </li>
                 <li className="D-ib Va-m Mstart-20px Pos-r Fw-400">
-                    <a href="https://github.com/yahoo/fluxible" className="D-b C-#fff Td-n:h" target="_blank">
+                    <a href="https://github.com/yahoo/fluxible" className="D-b C-#fff Td-n:h navLink" target="_blank">
                         <i className="Va-m Pos-r fa fa-github"></i> GitHub
                     </a>
                 </li>
@@ -27,5 +35,10 @@ class TopNav extends React.Component {
         );
     }
 }
+
+TopNav.propTypes = {
+    currentRoute: React.PropTypes.object,
+    selected: React.PropTypes.string
+};
 
 export default TopNav;

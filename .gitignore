@@ -1,4 +1,6 @@
+.jshintignore
 .sass-cache
+.validate.json
 artifacts
 assets.js
 build

@@ -39,8 +39,8 @@ class Home extends React.Component {
 
                     <div className="Bxz-bb D-ib Va-t W-100% Pstart-20px--sm W-50%--sm">
                         <h2>Dehydration/Rehydration</h2>
-                        <p><NavLink routeName="stores">Stores</NavLink> can provide `dehydrate` and `rehydrate` so
-                        that you can propagate the initial server state to the client.</p>
+                        <p><NavLink routeName="stores">Stores</NavLink> can provide `dehydrate` and `rehydrate`
+                        methods so that you can propagate the initial server state to the client.</p>
                     </div>
 
                     <div className="Bxz-bb D-ib Va-t W-100% Pend-20px--sm W-50%--sm Bdt-1--sm Mt-2em--sm">
