@@ -4,6 +4,7 @@
  */
 
 import Debug from 'debug';
+import fs from 'fs';
 import getSearchIndexPath from '../utils/getSearchIndexPath';
 const debug = Debug('SearchService');
 
@@ -11,8 +12,12 @@ export default {
     name: 'search',
     read: function (req, resource, params, config, callback) {
         debug('Reading index');
-        const index = require(getSearchIndexPath());
-        debug('Index loaded');
-        return callback(null, index);
+        try {
+            const indexCache = JSON.parse(fs.readFileSync(getSearchIndexPath(), { encoding: 'utf-8' }));
+            debug('Index loaded');
+            return callback(null, indexCache);
+        } catch (e) {
+            callback(e);
+        }
     }
 };
