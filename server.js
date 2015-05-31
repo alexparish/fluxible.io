@@ -66,6 +66,9 @@ server.use(function (req, res, next) {
     });
 
     context.executeAction(navigateAction, { url: req.url }, function (err) {
+        if (err) {
+            return next(err);
+        }
         renderApp(res, context);
     });
 });
