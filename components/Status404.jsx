@@ -9,9 +9,9 @@ import { NavLink } from 'fluxible-router';
 class Status404 extends React.Component {
     render() {
         return (
-            <div id="404" className="D-tb W-100% Pos-r">
-                <div className="D-tbc Va-m Bgz-cv Ov-h Pos-r W-100% Start-0">
-                    <div className="Mx-a W-65% Pos-r Ov-h Fw-300">
+            <div id="404" className="D(tb) W(100%) Pos(r)">
+                <div className="D(tb)c Va(m) Bgz(cv) Ov(h) Pos(r) W(100%) Start(0)">
+                    <div className="Mx(a) W(65%) Pos(r) Ov(h) Fw(300)">
                         <h1>Not found</h1>
                         <p>Sorry we could not find that resource.</p>
                         <p><NavLink routeName="home">Back to the home page.</NavLink></p>

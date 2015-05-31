@@ -12,7 +12,7 @@ The doc site for [Fluxible](https://github.com/yahoo/fluxible).
 $ npm install
 ```
 
-There is also a `/secrets.example.js` file that you need to copy to `/secrets.js` with your GitHub API to allow the app to access the page content it needs from GitHub.
+There is also a `/secrets.example.js` file that you need to copy to `/secrets.js` with your GitHub API credentials to allow the app to access the page content it needs from GitHub.
 
 
 ## Run the app
@@ -35,9 +35,13 @@ assets that `webpack` generates. NOTE, this may break your application if the as
 are not on CDN.
 
 
-## How it works
+## How its built
 
 The documentation for the site is generated from the [yahoo/fluxible/docs](https://github.com/yahoo/fluxible/tree/master/docs) repository. On server start, the [docs service](https://github.com/yahoo/fluxible.io/blob/master/services/docs.js), reads the [route configuration](https://github.com/yahoo/fluxible.io/blob/master/configs/routes.js) and leverages the Github API to access the associated markdown document. Each document is parsed and cached. To account for any document updates, we refresh the cache every hour.
+
+### Styles
+
+Fluxible leverages [Atomic CSS](http://acss.io/) to include the minimal set of CSS to style the site. The [grunt-atomizer](https://www.npmjs.com/package/grunt-atomizer) library scans the React components for Atomic CSS classes and builds a CSS file of only the CSS classes that we specify. This keeps the CSS size to an absolute minimum.
 
 ### Search
 

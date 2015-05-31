@@ -72,22 +72,22 @@ class Search extends React.Component {
 
     render() {
         let classes = cx({
-            'D-ib Mstart-3px Ov-h Va-m Pos-a End-20px': true,
-            'W-0': this.state.visible === false,
-            'W-200px Ov-a': this.state.visible
+            'D(ib) Mstart(3px) Ov(h) Va(m) Pos(a) End(20px)': true,
+            'W(0)': this.state.visible === false,
+            'W(200px) Ov(a)': this.state.visible
         });
         return (
-            <div className="D-ib">
+            <div className="D(ib)">
                 <form className={classes}>
                     <input
                         ref="q"
                         type="text"
                         name="q"
                         onKeyDown={this._onKeyDown.bind(this)}
-                        className="Px-4px Py-1px Bdrs-2px Bd-2 C-#fff Fw-b"
+                        className="Px(4px) Py(1px) Bdrs(2px) Bd(2) C(#fff) Fw(b)"
                     />
                 </form>
-                <i className="Va-m Pos-r fa fa-search Cur-p" onClick={this._toggleSearchVisibility.bind(this)}></i>
+                <i className="Va(m) Pos(r) fa fa-search Cur(p)" onClick={this._toggleSearchVisibility.bind(this)}></i>
             </div>
         );
     }

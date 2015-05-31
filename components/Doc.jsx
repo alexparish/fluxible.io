@@ -39,7 +39,7 @@ class Doc extends React.Component {
         if (this.props.currentRoute && this.props.currentRoute.get('githubPath') !== -1) {
             editEl = (
                 <a href={DOCS_URL + this.props.currentRoute.get('githubPath')}
-                    className="edit-github Pos-a End-10px T-18px"
+                    className="edit-github Pos(a) End(10px) T(18px)"
                     target="_blank">
                     Edit on Github
                 </a>
@@ -49,7 +49,7 @@ class Doc extends React.Component {
         let markup = (this.props.currentDoc && this.props.currentDoc.content) || '';
 
         return (
-            <div id="main" role="main" className="D-tbc--sm Px-10px Pos-r">
+            <div id="main" role="main" className="D(tbc)--sm Px(10px) Pos(r)">
                 {editEl}
                 <div onClick={this.onClick.bind(this)} dangerouslySetInnerHTML={{__html: markup}}></div>
             </div>

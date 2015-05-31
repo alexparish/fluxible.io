@@ -17,18 +17,18 @@ class TopNav extends React.Component {
         const selected = this.props.selected;
 
         return (
-            <ul id="navigation" role="navigation" className="Va-m reset">
-                <li className="D-ib Va-m Pos-r Fw-400 C-#fff Td-n:h">
+            <ul id="navigation" role="navigation" className="Va(m) reset">
+                <li className="D(ib) Va(m) Pos(r) Fw(400) C(#fff) Td(n):h navLink">
                     <Search currentRoute={this.props.currentRoute} />
                 </li>
-                <li className={cx({'selected': selected !== 'home', 'D-ib Va-m Mstart-20px Pos-r Fw-400 navLink': true})}>
-                    <NavLink routeName="quickStart" className="D-b C-#fff Td-n:h">
+                <li className={cx({'selected': selected !== 'home', 'D(ib) Va(m) Mstart(20px) Pos(r) Fw(400) navLink': true})}>
+                    <NavLink routeName="quickStart" className="D(b) C(#fff) Td(n):h">
                         Docs
                     </NavLink>
                 </li>
-                <li className="D-ib Va-m Mstart-20px Pos-r Fw-400">
-                    <a href="https://github.com/yahoo/fluxible" className="D-b C-#fff Td-n:h navLink" target="_blank">
-                        <i className="Va-m Pos-r fa fa-github"></i> GitHub
+                <li className="D(ib) Va(m) Mstart(20px) Pos(r) Fw(400)">
+                    <a href="https://github.com/yahoo/fluxible" className="D(b) C(#fff) Td(n):h navLink" target="_blank">
+                        <i className="Va(m) Pos(r) fa fa-github"></i> GitHub
                     </a>
                 </li>
             </ul>

@@ -2,7 +2,7 @@
  * TODO: take care of these 4 rules
  * Should belong to Atomic.css somehow
  */
-#atomic .D-ib {
+#atomic .D(ib) {
     *display: inline;
     zoom: 1;
 }
