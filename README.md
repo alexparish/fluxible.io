@@ -14,7 +14,6 @@ $ npm install
 
 There is also a `/secrets.example.js` file that you need to copy to `/secrets.js` with your GitHub API credentials to allow the app to access the page content it needs from GitHub.
 
-
 ## Run the app
 
 ```bash

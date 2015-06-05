@@ -5,6 +5,7 @@
 
 import React from 'react';
 import { navigateAction } from 'fluxible-router';
+import { ReactI13n, I13nAnchor } from 'react-i13n';
 
 const DOCS_URL = 'https://github.com/yahoo/fluxible/tree/master';
 
@@ -17,6 +18,7 @@ function isModifiedEvent (e) {
 }
 
 class Doc extends React.Component {
+
     onClick(e) {
         let target = e.target;
 
@@ -38,11 +40,11 @@ class Doc extends React.Component {
 
         if (this.props.currentRoute && this.props.currentRoute.get('githubPath') !== -1) {
             editEl = (
-                <a href={DOCS_URL + this.props.currentRoute.get('githubPath')}
+                <I13nAnchor href={DOCS_URL + this.props.currentRoute.get('githubPath')}
                     className="edit-github Pos(a) End(10px) T(18px)"
                     target="_blank">
                     Edit on Github
-                </a>
+                </I13nAnchor>
             );
         }
 
