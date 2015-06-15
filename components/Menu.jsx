@@ -30,7 +30,7 @@ class Menu extends React.Component {
 
                 // support off site links
                 if (link.url) {
-                    linkNode = (<NavLink className={link.label + ' D(b) Td(n):h Py(5px)'} href={link.url}>{link.label}</NavLink>);
+                    linkNode = (<NavLink className={link.label + ' D(b) Td(n):h Py(5px)'} href={link.url} follow={true}>{link.label}</NavLink>);
                 }
 
                 submenu.push(<li key={link.label} className={classList}>{linkNode}</li>);
