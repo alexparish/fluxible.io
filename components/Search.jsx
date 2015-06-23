@@ -79,12 +79,15 @@ class Search extends React.Component {
         return (
             <div className="D(ib)">
                 <form className={classes}>
+                    <label forHTML="q" className="hidden">Search</label>
                     <input
                         ref="q"
                         type="text"
                         name="q"
                         onKeyDown={this._onKeyDown.bind(this)}
                         className="Px(4px) Py(1px) Bdrs(2px) Bd(2) C(#fff) Fw(b)"
+                        role="search"
+                        id="q"
                     />
                 </form>
                 <i className="Va(m) Pos(r) fa fa-search Cur(p)" onClick={this._toggleSearchVisibility.bind(this)}></i>
