@@ -5,7 +5,7 @@
 
 import React from 'react';
 import { navigateAction } from 'fluxible-router';
-import { ReactI13n, I13nAnchor } from 'react-i13n';
+import { ReactI13n, createI13nNode, I13nAnchor, I13nDiv} from 'react-i13n';
 
 const DOCS_URL = 'https://github.com/yahoo/fluxible/tree/master';
 
@@ -53,7 +53,7 @@ class Doc extends React.Component {
         return (
             <div id="main" role="main" className="D(tbc)--sm Px(10px) Pos(r)">
                 {editEl}
-                <div onClick={this.onClick.bind(this)} dangerouslySetInnerHTML={{__html: markup}}></div>
+                <I13nDiv key={new Date().getTime()} onClick={this.onClick.bind(this)} dangerouslySetInnerHTML={{__html: markup}} scanLinks={{enable: true}}></I13nDiv>
             </div>
         );
     }
@@ -68,4 +68,6 @@ Doc.propTypes = {
     currentRoute: React.PropTypes.object.isRequired
 };
 
-export default Doc;
+export default createI13nNode(Doc, {
+    i13nModel: {category: 'doc'}
+});

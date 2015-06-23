@@ -26,11 +26,11 @@ class Application extends React.Component {
     }
     
     componentDidMount() {
-        ReactI13n.getInstance().execute('pageview', {});
+        this.props.i13n.executeEvent('pageview', {});
     }
 
     componentDidUpdate(prevProps, prevState) {
-        ReactI13n.getInstance().execute('pageview', {
+        this.props.i13n.executeEvent('pageview', {
             page: this.props.currentRoute && this.props.currentRoute.get('url'),
             title: this.props.currentTitle
         });
