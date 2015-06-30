@@ -7,7 +7,10 @@ import React from 'react';
 import { navigateAction } from 'fluxible-router';
 import { ReactI13n, createI13nNode, I13nAnchor, I13nDiv} from 'react-i13n';
 
-const DOCS_URL = 'https://github.com/yahoo/fluxible/tree/master';
+function createDocsUrl(repo, path) {
+    repo = repo || 'yahoo/fluxible';
+    return 'https://github.com/' + repo + '/tree/master' + path;
+}
 
 function isLeftClickEvent (e) {
     return e.button === 0;
@@ -40,7 +43,7 @@ class Doc extends React.Component {
 
         if (this.props.currentRoute && this.props.currentRoute.get('githubPath') !== -1) {
             editEl = (
-                <I13nAnchor href={DOCS_URL + this.props.currentRoute.get('githubPath')}
+                <I13nAnchor href={createDocsUrl(this.props.currentRoute.get('githubRepo'), this.props.currentRoute.get('githubPath'))}
                     className="edit-github Pos(a) End(10px) T(18px)"
                     target="_blank">
                     Edit on Github

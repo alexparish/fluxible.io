@@ -17,6 +17,7 @@ export default {
         method: 'GET',
         handler: Home,
         githubPath: '/docs/home.md',
+        githubRepo: 'yahoo/fluxible',
         action: showDoc,
         pageTitle: 'Fluxible | A Pluggable Container for Isomorphic Flux Applications',
         pageDescription: 'A Pluggable Container for Isomorphic Flux Applications'
@@ -26,6 +27,7 @@ export default {
         method: 'GET',
         handler: Docs,
         githubPath: '/docs/quick-start.md',
+        githubRepo: 'yahoo/fluxible',
         action: showDoc,
         pageTitlePrefix: 'Quick Start',
         pageDescription: 'Get started with Fluxible by using our generator to setup your application.'
@@ -35,6 +37,7 @@ export default {
         method: 'GET',
         handler: Docs,
         githubPath: '/docs/faq.md',
+        githubRepo: 'yahoo/fluxible',
         action: showDoc,
         pageTitlePrefix: 'FAQ',
         pageDescription: 'Frequently asked questions from the community.'
@@ -59,6 +62,7 @@ export default {
         method: 'GET',
         handler: Docs,
         githubPath: '/docs/api/Actions.md',
+        githubRepo: 'yahoo/fluxible',
         action: showDoc,
         pageTitlePrefix: 'API: Actions',
         pageDescription: 'Actions (called "action creators" in Flux) in Fluxible are stateless async functions.'
@@ -68,6 +72,7 @@ export default {
         method: 'GET',
         handler: Docs,
         githubPath: '/docs/api/Components.md',
+        githubRepo: 'yahoo/fluxible',
         action: showDoc,
         pageTitlePrefix: 'API: Components',
         pageDescription: 'React components able to access the state of the application that is held within stores ' +
@@ -78,6 +83,7 @@ export default {
         method: 'GET',
         handler: Docs,
         githubPath: '/docs/api/Fluxible.md',
+        githubRepo: 'yahoo/fluxible',
         action: showDoc,
         pageTitlePrefix: 'API: Fluxible',
         pageDescription: 'Instantiated once for your application, this holds settings and interfaces' +
@@ -88,6 +94,7 @@ export default {
         method: 'GET',
         handler: Docs,
         githubPath: '/docs/api/FluxibleContext.md',
+        githubRepo: 'yahoo/fluxible',
         action: showDoc,
         pageTitlePrefix: 'API: FluxibleContext',
         pageDescription: 'Instantiated once per request/session, this container provides isolation of ' +
@@ -98,6 +105,7 @@ export default {
         method: 'GET',
         handler: Docs,
         githubPath: '/docs/api/Plugins.md',
+        githubRepo: 'yahoo/fluxible',
         action: showDoc,
         pageTitlePrefix: 'API: Plugins',
         pageDescription: 'Plugins allow you to extend the interface of each context type.'
@@ -107,6 +115,7 @@ export default {
         method: 'GET',
         handler: Docs,
         githubPath: '/docs/api/Stores.md',
+        githubRepo: 'yahoo/fluxible',
         action: showDoc,
         pageTitlePrefix: 'API: Stores',
         pageDescription: 'Flux stores are where you keep your application\'s state and ' +
@@ -115,19 +124,21 @@ export default {
 
     // Addons
     baseStore: {
-        path: '/api/addons/BaseStore.html',
+        path: '/addons/BaseStore.html',
         method: 'GET',
         handler: Docs,
         githubPath: '/docs/api/addons/BaseStore.md',
+        githubRepo: 'yahoo/fluxible',
         action: showDoc,
         pageTitlePrefix: 'API: addons/BaseStore',
         pageDescription: 'A base class that you can extend to reduce boilerplate when creating stores.'
     },
     fluxibleComponent: {
-        path: '/api/addons/FluxibleComponent.html',
+        path: '/addons/FluxibleComponent.html',
         method: 'GET',
         handler: Docs,
-        githubPath: '/docs/api/addons/FluxibleComponent.md',
+        githubPath: '/docs/api/FluxibleComponent.md',
+        githubRepo: 'yahoo/fluxible-addons-react',
         action: showDoc,
         pageTitlePrefix: 'API: addons/FluxibleComponent',
         pageDescription: 'The FluxibleComponent is a wrapper component that will provide all' +
@@ -135,39 +146,55 @@ export default {
             ' childContextTypes and getChildContext.'
     },
     fluxibleMixin: {
-        path: '/api/addons/FluxibleMixin.html',
+        path: '/addons/FluxibleMixin.html',
         method: 'GET',
         handler: Docs,
-        githubPath: '/docs/api/addons/FluxibleMixin.md',
+        githubPath: '/docs/api/FluxibleMixin.md',
+        githubRepo: 'yahoo/fluxible-addons-react',
         action: showDoc,
         pageTitlePrefix: 'API: addons/FluxibleMixin',
         pageDescription: 'The mixin will add the contextTypes getStore and executeAction to your component.'
     },
     connectToStores: {
-        path: '/api/addons/connectToStores.html',
+        path: '/addons/connectToStores.html',
         method: 'GET',
         handler: Docs,
-        githubPath: '/docs/api/addons/connectToStores.md',
+        githubPath: '/docs/api/connectToStores.md',
+        githubRepo: 'yahoo/fluxible-addons-react',
         action: showDoc,
         pageTitlePrefix: 'API: addons/connectToStores',
         pageDescription: 'connectToStores is a higher-order component that provides a convenient way' +
             ' to access state from the stores from within your component'
     },
+    createElementWithContext: {
+        path: '/addons/createElementWithContext.html',
+        method: 'GET',
+        handler: Docs,
+        githubPath: '/docs/api/createElementWithContext.md',
+        githubRepo: 'yahoo/fluxible-addons-react',
+        action: showDoc,
+        pageTitlePrefix: 'API: addons/createElementWithContext',
+        pageDescription: 'Convenience method for instantiating the Fluxible app\'s ' +
+            'top level React component (if provided in the constructor) with the given' +
+            'props with an additional context key containing a ComponentContext.'
+    },
     createStore: {
-        path: '/api/addons/createStore.html',
+        path: '/addons/createStore.html',
         method: 'GET',
         handler: Docs,
         githubPath: '/docs/api/addons/createStore.md',
+        githubRepo: 'yahoo/fluxible',
         action: showDoc,
         pageTitlePrefix: 'API: addons/createStore',
         pageDescription: 'A helper method similar to React.createClass but for creating stores that' +
             ' extend BaseStore. Also supports mixins.'
     },
     provideContext: {
-        path: '/api/addons/provideContext.html',
+        path: '/addons/provideContext.html',
         method: 'GET',
         handler: Docs,
-        githubPath: '/docs/api/addons/provideContext.md',
+        githubPath: '/docs/api/provideContext.md',
+        githubRepo: 'yahoo/fluxible-addons-react',
         action: showDoc,
         pageTitlePrefix: 'API: addons/provideContext',
         pageDescription: 'provideContext wraps the Component with a higher-order component' +
@@ -180,19 +207,11 @@ export default {
         method: 'GET',
         handler: Docs,
         githubPath: '/docs/tutorials/routing.md',
+        githubRepo: 'yahoo/fluxible',
         action: showDoc,
         pageTitlePrefix: 'Routing Tutorial',
         pageDescription: 'A tutorial covering the concepts of building an isomorphic website' +
             ' with Fluxible that demonstrates routing.'
-    },
-    isomorphicFlux: {
-        path: '/api/bringing-flux-to-the-server.html',
-        method: 'GET',
-        handler: Docs,
-        githubPath: '/docs/guides/bringing-flux-to-the-server.md',
-        action: showDoc,
-        pageTitlePrefix: 'Bringing Flux to the Server',
-        pageDescription: 'An in depth look at how Flux was brought to the server.'
     },
 
     // Guides
@@ -201,10 +220,21 @@ export default {
         method: 'GET',
         handler: Docs,
         githubPath: '/docs/guides/data-services.md',
+        githubRepo: 'yahoo/fluxible',
         action: showDoc,
         pageTitlePrefix: 'Data Services Guide',
         pageDescription: 'Services are where you define your CRUD operations for a' +
             ' specific resource. A resource is a unique string that identifies the data.'
+    },
+    isomorphicFlux: {
+        path: '/guides/bringing-flux-to-the-server.html',
+        method: 'GET',
+        handler: Docs,
+        githubPath: '/docs/guides/bringing-flux-to-the-server.md',
+        githubRepo: 'yahoo/fluxible',
+        action: showDoc,
+        pageTitlePrefix: 'Bringing Flux to the Server',
+        pageDescription: 'An in depth look at how Flux was brought to the server.'
     },
 
     // Community
@@ -213,6 +243,7 @@ export default {
         method: 'GET',
         handler: Docs,
         githubPath: '/docs/community/libraries.md',
+        githubRepo: 'yahoo/fluxible',
         action: showDoc,
         pageTitlePrefix: 'Community Libraries',
         pageDescription: 'Take a look at some of the libraries that our community has built.'
@@ -222,6 +253,7 @@ export default {
         method: 'GET',
         handler: Docs,
         githubPath: '/docs/community/presentations.md',
+        githubRepo: 'yahoo/fluxible',
         action: showDoc,
         pageTitlePrefix: 'Community Presentations',
         pageDescription: 'Presentations we have given to the community.'
@@ -231,10 +263,13 @@ export default {
         method: 'GET',
         handler: Docs,
         githubPath: '/docs/community/reference-applications.md',
+        githubRepo: 'yahoo/fluxible',
         action: showDoc,
         pageTitlePrefix: 'Community Reference Applications',
         pageDescription: 'Applications using Fluxible in the wild.'
     },
+
+    // Status pages
     status404: {
         path: '/__http404',
         handler: Status404
