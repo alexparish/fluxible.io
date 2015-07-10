@@ -137,7 +137,7 @@ module.exports = function (grunt) {
         },
 
         // functional testing
-        protractor_webdriver: {
+        protractorWebdriver: {
             options: {
                 path: './node_modules/.bin/'
             },
@@ -282,7 +282,6 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-cssmin');
-    grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-nodemon');
     grunt.loadNpmTasks('grunt-protractor-webdriver');
@@ -291,7 +290,7 @@ module.exports = function (grunt) {
 
     // tasks
     grunt.registerTask('default', 'dev');
-    grunt.registerTask('dev', ['clean', 'copy', 'jshint', 'atomizer:app', 'cssmin:dev', 'concurrent:dev']);
+    grunt.registerTask('dev', ['clean', 'copy', 'atomizer:app', 'cssmin:dev', 'concurrent:dev']);
     grunt.registerTask('build', ['clean', 'copy', 'atomizer:app', 'cssmin:prod', 'webpack:prod']);
-    grunt.registerTask('func', ['protractor_webdriver', 'protractor']);
+    grunt.registerTask('func', ['protractorWebdriver', 'protractor']);
 };

@@ -6,8 +6,8 @@
 import React from 'react';
 import cx from 'classnames';
 import NavLink from './NavLink.jsx';
-import { I13nAnchor, createI13nNode } from 'react-i13n'
-import Search from './Search.jsx'
+import { I13nAnchor, createI13nNode } from 'react-i13n';
+import Search from './Search.jsx';
 
 class TopNav extends React.Component {
     constructor() {

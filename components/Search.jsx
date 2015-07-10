@@ -9,8 +9,8 @@ import { navigateAction, RouteStore } from 'fluxible-router';
 import connectToStores from 'fluxible/addons/connectToStores';
 import loadIndex from '../actions/loadIndex';
 import SearchStore from '../stores/SearchStore';
-import Debug from 'debug';
-const debug = Debug('Search');
+import debugLib from 'debug';
+const debug = debugLib('Search');
 const ENTER_KEY_CODE = 13;
 
 class Search extends React.Component {

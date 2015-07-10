@@ -4,7 +4,7 @@
  */
 /* global document */
 
-import Debug from 'debug';
+import debugLib from 'debug';
 import React from 'react';
 import Home from './Home.jsx';
 import Docs from './Docs.jsx';
@@ -18,13 +18,13 @@ import cx from 'classnames';
 import { ReactI13n, setupI13n, I13nAnchor } from 'react-i13n';
 import ReactI13nGoogleAnalytics from 'react-i13n-ga';
 
-const debug = Debug('MyApp');
+const debug = debugLib('MyApp');
 
 class Application extends React.Component {
     shouldComponentUpdate(nextProps, nextState) {
         return nextProps.isNavigateComplete;
     }
-    
+
     componentDidMount() {
         this.props.i13n.executeEvent('pageview', {});
     }
@@ -57,7 +57,7 @@ class Application extends React.Component {
             }
         }
         else {
-            Handler = <Status404 />
+            Handler = <Status404 />;
         }
 
         return (

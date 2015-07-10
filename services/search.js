@@ -3,10 +3,10 @@
  * Copyrights licensed under the New BSD License. See the accompanying LICENSE file for terms.
  */
 
-import Debug from 'debug';
+import debugLib from 'debug';
 import fs from 'fs';
 import getSearchIndexPath from '../utils/getSearchIndexPath';
-const debug = Debug('SearchService');
+const debug = debugLib('SearchService');
 
 export default {
     name: 'search',

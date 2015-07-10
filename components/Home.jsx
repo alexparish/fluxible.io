@@ -84,7 +84,7 @@ class Home extends React.Component {
                             <img src="https://camo.githubusercontent.com/20d7543bc8280bf8134b686c46c7b7e2c0a467fd/68747470733a2f2f6261646765732e6769747465722e696d2f67697474657248512f6769747465722e706e67"
                                 alt="Gitter chat"
                                 data-canonical-src="https://badges.gitter.im/gitterHQ/gitter.png"
-                                style={{maxWidth: "100%"}}
+                                style={{maxWidth: '100%'}}
                                 className="Va(m)" />
                         </I13nAnchor> or
                         #fluxible channel of the <I13nAnchor href="http://reactiflux.com/">Reactiflux</I13nAnchor> Slack community.

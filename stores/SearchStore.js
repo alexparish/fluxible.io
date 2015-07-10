@@ -3,11 +3,11 @@
  * Copyrights licensed under the New BSD License. See the accompanying LICENSE file for terms.
  */
 
-import Debug from 'debug';
+import debugLib from 'debug';
 import { BaseStore } from 'fluxible/addons';
 import lunr from 'lunr';
 
-const debug = Debug('SearchStore');
+const debug = debugLib('SearchStore');
 
 class SearchStore extends BaseStore {
     constructor(dispatcher) {

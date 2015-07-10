@@ -3,8 +3,8 @@
  * Copyrights licensed under the New BSD License. See the accompanying LICENSE file for terms.
  */
 
-import Debug from 'debug';
-const debug = Debug('showSearch');
+import debugLib from 'debug';
+const debug = debugLib('showSearch');
 
 export default function (context, route, done) {
     debug('show search page');

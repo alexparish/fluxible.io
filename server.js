@@ -3,6 +3,7 @@
  * Copyrights licensed under the New BSD License. See the accompanying LICENSE file for terms.
  */
 
+import path from 'path';
 import express from 'express';
 import favicon from 'serve-favicon';
 import serialize from 'serialize-javascript';
@@ -12,17 +13,17 @@ import cookieParser from 'cookie-parser';
 import csrf from 'csurf';
 import React from 'react';
 import app from './app';
-import html from './components/Html.jsx';
+import HtmlComponent from './components/Html.jsx';
 import assets from './utils/assets';
 import DocsService from './services/docs';
 import SearchService from './services/search';
 
-const HtmlComponent = React.createFactory(html);
+const htmlComponent = React.createFactory(HtmlComponent);
 const server = express();
 
 server.set('state namespace', 'App');
-server.use(favicon(__dirname + '/assets/images/favicon.ico'));
-server.use('/public', express.static(__dirname + '/build'));
+server.use(favicon(path.join(__dirname, '/assets/images/favicon.ico')));
+server.use('/public', express.static(path.join(__dirname, '/build')));
 server.use(cookieParser());
 server.use(bodyParser.json());
 server.use(csrf({ cookie: true }));
@@ -44,7 +45,7 @@ function renderApp(res, context) {
     const exposed = 'window.App=' + serialize(app.dehydrate(context)) + ';';
     const doctype = '<!DOCTYPE html>';
     const componentContext = context.getComponentContext();
-    const html = React.renderToStaticMarkup(HtmlComponent({
+    const html = React.renderToStaticMarkup(htmlComponent({
         assets: assets,
         context: componentContext,
         state: exposed,

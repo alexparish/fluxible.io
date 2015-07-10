@@ -3,7 +3,7 @@
  * Copyrights licensed under the New BSD License. See the accompanying LICENSE file for terms.
  */
 
-import Debug from 'debug';
+import debug from 'debug';
 import Fluxible from 'fluxible';
 import fetchrPlugin from 'fluxible-plugin-fetchr';
 import routes from './configs/routes';
@@ -12,7 +12,7 @@ import DocStore from './stores/DocStore';
 import SearchStore from './stores/SearchStore';
 import { RouteStore } from 'fluxible-router';
 
-const debug = Debug('app.js');
+const debug = debug('app.js');
 const MyRouteStore = RouteStore.withStaticRoutes(routes);
 
 const app = new Fluxible({

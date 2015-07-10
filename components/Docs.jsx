@@ -52,7 +52,7 @@ class Docs extends React.Component {
                     onClick={this.handleMenuToggle.bind(this)}
                     id="toggleMenuButton"
                     className="menu-button D(n)--sm Pos(a) resetButton End(0) Z(7) Mend(10px)"
-                    style={{ top: "-12px" }}
+                    style={{ top: '-12px' }}
                 >
                     <i className="fa fa-bars"></i>
                     <b className="hidden">Toggle the menu</b>
