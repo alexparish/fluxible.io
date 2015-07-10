@@ -8,7 +8,7 @@ import debugLib from 'debug';
 import React from 'react';
 import Home from './Home.jsx';
 import Docs from './Docs.jsx';
-import { provideContext, connectToStores } from 'fluxible/addons';
+import { provideContext, connectToStores } from 'fluxible-addons-react';
 import { handleHistory } from 'fluxible-router';
 import NavLink from './NavLink.jsx';
 import TopNav from './TopNav';
@@ -20,6 +20,12 @@ import ReactI13nGoogleAnalytics from 'react-i13n-ga';
 
 const debug = debugLib('MyApp');
 
+@provideContext
+@handleHistory
+@connectToStores(['DocStore'], (context) => ({
+    currentTitle: context.getStore('DocStore').getCurrentTitle() || '',
+    currentDoc: context.getStore('DocStore').getCurrent() || {}
+}))
 class Application extends React.Component {
     shouldComponentUpdate(nextProps, nextState) {
         return nextProps.isNavigateComplete;
@@ -81,20 +87,6 @@ class Application extends React.Component {
         );
     }
 }
-
-// connect to stores
-Application = connectToStores(Application, ['DocStore'], function (stores, props) {
-    return {
-        currentTitle: stores.DocStore.getCurrentTitle() || '',
-        currentDoc: stores.DocStore.getCurrent() || {}
-    };
-});
-
-// wrap with history handler
-Application = handleHistory(Application);
-
-// and wrap that with context
-Application = provideContext(Application);
 
 // setup i13n
 var reactI13nGoogleAnalytics = new ReactI13nGoogleAnalytics('UA-58912168-1');

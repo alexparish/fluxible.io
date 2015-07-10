@@ -7,6 +7,8 @@
 import React from 'react';
 import app from './app';
 import Debug from 'debug';
+import { createElementWithContext } from 'fluxible-addons-react';
+
 const dehydratedState = window.App; // sent from the server
 
 // for chrome dev tool support
@@ -21,7 +23,7 @@ app.rehydrate(dehydratedState, function (err, context) {
 
     window.context = context;
 
-    React.render(context.createElement(),
+    React.render(createElementWithContext(context),
         document.getElementById('docsapp')
     );
 });

@@ -10,6 +10,12 @@ import { I13nAnchor, createI13nNode } from 'react-i13n';
 import Search from './Search.jsx';
 
 class TopNav extends React.Component {
+
+    static propTypes = {
+        currentRoute: React.PropTypes.object,
+        selected: React.PropTypes.string
+    };
+
     constructor() {
         super();
     }
@@ -36,11 +42,6 @@ class TopNav extends React.Component {
         );
     }
 }
-
-TopNav.propTypes = {
-    currentRoute: React.PropTypes.object,
-    selected: React.PropTypes.string
-};
 
 export default createI13nNode(TopNav, {
     i13nModel: {category: 'top-nav'}

@@ -6,7 +6,6 @@
 import React from 'react';
 import NavLink from './NavLink.jsx';
 import { I13nAnchor, createI13nNode } from 'react-i13n';
-import { connectToStores } from 'fluxible/addons';
 import Doc from './Doc.jsx';
 
 class Home extends React.Component {

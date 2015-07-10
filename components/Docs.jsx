@@ -9,10 +9,20 @@ import Doc from './Doc.jsx';
 import SearchResults from './SearchResults.jsx';
 import cx from 'classnames';
 import { handleRoute } from 'fluxible-router';
-import connectToStores from 'fluxible/addons/connectToStores';
+import connectToStores from 'fluxible-addons-react/connectToStores';
 import SearchStore from '../stores/SearchStore';
 
+@handleRoute
+@connectToStores([ SearchStore ], (context) => ({
+    search: context.getStore(SearchStore).getState()
+}))
 class Docs extends React.Component {
+
+    static propTypes = {
+        currentDoc: React.PropTypes.object.isRequired,
+        currentRoute: React.PropTypes.object.isRequired
+    };
+
     constructor(props, context) {
         super(props, context);
         this.state = {
@@ -64,19 +74,5 @@ class Docs extends React.Component {
         );
     }
 }
-
-Docs.propTypes = {
-    currentDoc: React.PropTypes.object.isRequired,
-    currentRoute: React.PropTypes.object.isRequired
-};
-
-Docs = connectToStores(Docs, [ SearchStore ], function (stores, props) {
-    return {
-        search: stores.SearchStore.getState()
-    };
-});
-
-// wrap with route handler
-Docs = handleRoute(Docs);
 
 export default Docs;

@@ -17,6 +17,7 @@ import HtmlComponent from './components/Html.jsx';
 import assets from './utils/assets';
 import DocsService from './services/docs';
 import SearchService from './services/search';
+import { createElementWithContext } from 'fluxible-addons-react';
 
 const htmlComponent = React.createFactory(HtmlComponent);
 const server = express();
@@ -40,7 +41,7 @@ server.use(fetchrPlugin.getXhrPath(), fetchrPlugin.getMiddleware());
 
 // Render the app
 function renderApp(res, context) {
-    const appElement = context.createElement();
+    const appElement = createElementWithContext(context);
     const renderedApp = React.renderToString(appElement);
     const exposed = 'window.App=' + serialize(app.dehydrate(context)) + ';';
     const doctype = '<!DOCTYPE html>';

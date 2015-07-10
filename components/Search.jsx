@@ -6,14 +6,27 @@
 import React from 'react';
 import cx from 'classnames';
 import { navigateAction, RouteStore } from 'fluxible-router';
-import connectToStores from 'fluxible/addons/connectToStores';
+import connectToStores from 'fluxible-addons-react/connectToStores';
 import loadIndex from '../actions/loadIndex';
 import SearchStore from '../stores/SearchStore';
 import debugLib from 'debug';
 const debug = debugLib('Search');
 const ENTER_KEY_CODE = 13;
 
+@connectToStores([ SearchStore ], (context) => ({
+    search: context.getStore(SearchStore).getState()
+}))
 class Search extends React.Component {
+
+    static contextTypes = {
+        executeAction: React.PropTypes.func,
+        getStore: React.PropTypes.func
+    };
+
+    static propTypes = {
+        currentRoute: React.PropTypes.object
+    };
+
     constructor() {
         super();
         this.state = {
@@ -95,20 +108,5 @@ class Search extends React.Component {
         );
     }
 }
-
-Search.contextTypes = {
-    executeAction: React.PropTypes.func,
-    getStore: React.PropTypes.func
-};
-
-Search.propTypes = {
-    currentRoute: React.PropTypes.object
-};
-
-Search = connectToStores(Search, [ SearchStore ], function (stores, props) {
-    return {
-        search: stores.SearchStore.getState()
-    };
-});
 
 export default Search;
