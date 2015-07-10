@@ -22,6 +22,15 @@ function isModifiedEvent (e) {
 
 class Doc extends React.Component {
 
+    static contextTypes = {
+        executeAction: React.PropTypes.func
+    };
+
+    static propTypes = {
+        currentDoc: React.PropTypes.object.isRequired,
+        currentRoute: React.PropTypes.object.isRequired
+    };
+
     onClick(e) {
         let target = e.target;
 
@@ -61,15 +70,6 @@ class Doc extends React.Component {
         );
     }
 }
-
-Doc.contextTypes = {
-    executeAction: React.PropTypes.func
-};
-
-Doc.propTypes = {
-    currentDoc: React.PropTypes.object.isRequired,
-    currentRoute: React.PropTypes.object.isRequired
-};
 
 export default createI13nNode(Doc, {
     i13nModel: {category: 'doc'}

@@ -4,8 +4,13 @@
  */
 
 import React from 'react';
-import { provideContext, connectToStores } from 'fluxible/addons';
+import { provideContext, connectToStores } from 'fluxible-addons-react';
 
+@provideContext
+@connectToStores(['DocStore'], (context) => ({
+    currentTitle: context.getStore('DocStore').getCurrentTitle() || '',
+    currentDoc: context.getStore('DocStore').getCurrent() || {}
+}))
 class Html extends React.Component {
     render() {
         return (
@@ -30,16 +35,5 @@ class Html extends React.Component {
         );
     }
 }
-
-// connect to stores
-Html = connectToStores(Html, ['DocStore'], function (stores, props) {
-    return {
-        currentTitle: stores.DocStore.getCurrentTitle() || '',
-        currentDoc: stores.DocStore.getCurrent() || {}
-    };
-});
-
-// and wrap that with context
-Html = provideContext(Html);
 
 export default Html;

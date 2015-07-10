@@ -9,6 +9,17 @@ import doSearch from '../actions/doSearch';
 import SearchStore from '../stores/SearchStore';
 
 class SearchResults extends React.Component {
+
+    static contextTypes = {
+        executeAction: React.PropTypes.func,
+        getStore: React.PropTypes.func
+    };
+
+    static propTypes = {
+        currentRoute: React.PropTypes.object.isRequired,
+        results: React.PropTypes.array
+    };
+
     componentDidUpdate() {
         // this handles performing a search when deep linking to search page
         const query = this.props.currentRoute.get('query').get('q');
@@ -48,15 +59,5 @@ class SearchResults extends React.Component {
         );
     }
 }
-
-SearchResults.contextTypes = {
-    executeAction: React.PropTypes.func,
-    getStore: React.PropTypes.func
-};
-
-SearchResults.propTypes = {
-    currentRoute: React.PropTypes.object.isRequired,
-    results: React.PropTypes.array
-};
 
 export default SearchResults;

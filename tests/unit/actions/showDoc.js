@@ -18,7 +18,7 @@ describe('controller actions', function () {
     beforeEach(function () {
         context = createMockActionContext({
             stores: [DocStore]
-        });;
+        });
         context.service = new MockService();
         context.service.setService('docs', function (method, params, config, callback) {
             if (params.emulateError) {
@@ -78,7 +78,7 @@ describe('controller actions', function () {
         });
 
         context.executeAction(showDoc, params, function (err) {
-            expect(err).to.be.an('object');
+            expect(err).to.be.an('Error');
             done();
         });
     });

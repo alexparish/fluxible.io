@@ -3,7 +3,7 @@
  * Copyrights licensed under the New BSD License. See the accompanying LICENSE file for terms.
  */
 
-import React from 'react/addons';
+import React from 'react';
 import cx from 'classnames';
 import NavLink from './NavLink.jsx';
 import { createI13nNode } from 'react-i13n';
