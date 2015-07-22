@@ -11,7 +11,6 @@ rules:
   no-loop-func: 0
   no-multi-str: 0
   no-shadow: 0
-  no-undef: 0
   no-underscore-dangle: 0
   no-unused-vars: 0 // see https://github.com/babel/babel-eslint/issues/21
   yoda: 0
