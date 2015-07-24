@@ -70,7 +70,7 @@ class Application extends React.Component {
             <div className="H(100%)">
                 <div className="wrapper Bxz(bb) Mih(100%)">
                     <div id="header" role="header" className="Px(10px) Py(13px) Ov(h) Z(7) Pos(r) Bgc(logo) optLegibility">
-                        <div className="innerwrapper spaceBetween Mx(a)--sm W(90%)--sm W(a)--sm">
+                        <div className="innerwrapper spaceBetween Mx(a)--sm W(90%)--sm">
                             <NavLink className={logoClasses} routeName="home" style={{ fontFamily: 'Montserrat' }} i13nModel={{category: 'logo'}}>
                                 <img src="/public/images/logo_small.svg" width="16" height="16" alt="Fluxible" style={{verticalAlign: 'baseline'}} /> Fluxible
                             </NavLink> <TopNav selected={routeName} currentRoute={this.props.currentRoute} />
