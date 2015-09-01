@@ -67,6 +67,9 @@ server.use(function (req, res, next) {
 
     context.executeAction(navigateAction, { url: req.url }, function (err) {
         if (err) {
+            if (err.statusCode === 404) {
+                return next();
+            }
             return next(err);
         }
         renderApp(res, context);

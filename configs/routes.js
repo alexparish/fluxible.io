@@ -200,6 +200,16 @@ export default {
         pageDescription: 'provideContext wraps the Component with a higher-order component' +
             ' that specifies the child context for you.'
     },
+    batchedUpdatePlugin: {
+        path: '/addons/batchedUpdatePlugin.html',
+        method: 'GET',
+        handler: Docs,
+        githubPath: '/docs/api/batchedUpdatePlugin.md',
+        githubRepo: 'yahoo/fluxible-addons-react',
+        action: showDoc,
+        pageTitlePrefix: 'API: addons/batchedUpdatePlugin',
+        pageDescription: 'Batches React state changes for each dispatch.'
+    },
 
     // Tutorials
     routing: {

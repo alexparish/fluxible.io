@@ -67,6 +67,10 @@ export default [
             {
                 label: 'provideContext',
                 routeName: 'provideContext'
+            },
+            {
+                label: 'batchedUpdatePlugin',
+                routeName: 'batchedUpdatePlugin'
             }
         ]
     },

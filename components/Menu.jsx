@@ -42,7 +42,7 @@ class Menu extends React.Component {
         });
 
         return (
-            <div id="aside" className="D(tbc) Va(t) W(150px)--sm End(0) Pt(20px) Pb(40px) Pstart(10px) Pend(50px)--sm Z(5) End(a)--sm Start(0)" role="aside" onClick={self.handleClick.bind(self)}>
+            <div id="aside" className="D(tbc) Va(t) W(175px)--sm End(0) Pt(20px) Pb(40px) Pstart(10px) Pend(50px)--sm Z(5) End(a)--sm Start(0)" role="aside" onClick={self.handleClick.bind(self)}>
                 {menu}
             </div>
         );

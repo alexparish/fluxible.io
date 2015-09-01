@@ -279,10 +279,11 @@ function fetchGitBranch(pkg, cb) {
             branchHash['yahoo/fluxible-addons-react'] = results.fluxibleAddonsBranch;
 
             Object.keys(routes).forEach(function eachRoute(routeName) {
-                let routeConfig = routes[routeName];
-
-                // pass branch name to pull specific branch from github
-                routeConfig.githubRef = branchHash[routeConfig.githubRepo];
+                let routeConfig = {
+                    ...routes[routeName],
+                    // pass branch name to pull specific branch from github
+                    githubRef: branchHash[routes[routeName].githubRepo]
+                };
 
                 if (routeConfig.githubPath) {
                     fetches.push(function eachTask(cb) {
@@ -317,7 +318,7 @@ export default {
         if (cache[params.path]) {
             return callback(null, cache[params.path]);
         } else {
-            return fetchAPI(params.path);
+            return fetchAPI(params.path, callback);
         }
     }
 };
