@@ -48,7 +48,7 @@
     "express": "^4.12.3",
     "express-state": "^1.2.0",
     "fluxible": "^0.5.0",
-    "fluxible-addons-react": "^0.1.6",
+    "fluxible-addons-react": "^0.1.8",
     "fluxible-plugin-fetchr": "^0.3.0",
     "fluxible-router": "^0.2.0",
     "highlight.js": "^8.4.0",

@@ -7,7 +7,10 @@
 import React from 'react';
 import app from './app';
 import Debug from 'debug';
-import { createElementWithContext } from 'fluxible-addons-react';
+import { batchedUpdatePlugin, createElementWithContext } from 'fluxible-addons-react';
+
+// Add batched update plugin on client only
+app.plug(batchedUpdatePlugin());
 
 const dehydratedState = window.App; // sent from the server
 
